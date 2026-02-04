@@ -43,7 +43,7 @@ def init_db():
         print("[MCP] DB init failed:", e)
         raise
 
-init_db()
+
 
 # -------------------------
 # MCP Tools
@@ -129,5 +129,9 @@ def categories():
 # HTTP Server (Render)
 # -------------------------
 if __name__ == "__main__":
+    print(f"[MCP] Database path: {DB_PATH}")
+    init_db()  # move here
+
     port = int(os.environ.get("PORT", 8000))
     mcp.run(host="0.0.0.0", port=port)
+
